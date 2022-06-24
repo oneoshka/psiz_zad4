@@ -7,13 +7,16 @@
 #include "filegenerator.h"
 int main()
 {
-    srand(time(NULL));
+    
     auto temp = rand() % 88 + 1;
     writeLine("test");
     writeLine(temp + "");
 
     generateFile("file1.bin", 0x55,100);
+    generateFile("file2Random.bin", 0x55, 100, 10);
+    generateFile("bigFile1.bin", 0x55, 1024 * 1024 * 400);
 
+    
     //std::cout << "Hello World!\n";
 }
 
