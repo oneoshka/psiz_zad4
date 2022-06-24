@@ -143,6 +143,7 @@
     <ClCompile Include="psiz_zad4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="filegenerator.h" />
     <ClInclude Include="hamming.h" />
     <ClInclude Include="logger.h" />
   </ItemGroup>

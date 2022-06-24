@@ -26,5 +26,8 @@
     <ClInclude Include="hamming.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="filegenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

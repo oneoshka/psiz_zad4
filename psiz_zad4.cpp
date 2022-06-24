@@ -4,19 +4,28 @@
 
 #include <iostream>
 #include "logger.h"
+#include "filegenerator.h"
 int main()
 {
+    srand(time(NULL));
+    auto temp = rand() % 88 + 1;
     writeLine("test");
+    writeLine(temp + "");
+
+    generateFile("file1.bin", 0x55,100);
+
     //std::cout << "Hello World!\n";
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+//1. Program konsolowy.Jako dwa argumenty przyjmuje œcie¿ki do plików dla których oblicza wartoœæ BER.
+//
+//2. Wynik obliczeñ drukowany jest w konsoli(Jako wynik podajemy : Iloœæ porównanych bitów, iloœæ ró¿nych bitów, wynik BER, czas obliczeñ)
+//
+//3. Program tworzy plik log.txt w którym zapisuje swoje logi.Ka¿da wiadomoœæ rozpoczyna siê od timestamp'a.
+//
+//4. Test 1: Przygotuj dwa identyczne pliki zawieraj¹ce binarnie zapisan¹ wartoœæ 0x55. Ka¿dy plik po 100 Bajtów.
+//
+//5. Test 2: Przygotuj dwa pliki ka¿dy po 100 bajtów.Pierwszy zawiera binarnie zapisan¹ wartoœæ 0x55. Drugi plik ró¿ni siê od pierwszego o dowolne 10 bitów.
+//
+//6. Test 3: Przygotuje dwa pliki ka¿dy po 400 MB.Pierwszy zawiera binarnie zapisan¹ wartoœæ 0x55. Drugi plik zawiera binarnie zapisan¹ wartoœæ 0x50.
+//
