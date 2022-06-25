@@ -1,0 +1,50 @@
+[2022-06-25 02:00:14] - 
+[2022-06-25 02:00:14] - 
+[2022-06-25 02:00:14] - 
+[2022-06-25 02:00:14] - 
+[2022-06-25 02:01:09] - test
+[2022-06-25 02:01:09] - st
+[2022-06-25 02:01:09] - File file1.bin already exists!
+[2022-06-25 02:01:09] - File file2Random.bin already exists!
+[2022-06-25 02:02:33] - test
+[2022-06-25 02:02:33] - st
+[2022-06-25 02:02:33] - File file1.bin already exists!
+[2022-06-25 02:02:33] - File file2Random.bin already exists!
+[2022-06-25 02:02:33] - 
+########################################################################
+RESULTS
+#######################################################################
+Comparison start: 
+Comparison end:   
+Number of bits: 
+Bit error rate: 
+
+
+[2022-06-25 02:03:13] - test
+[2022-06-25 02:03:13] - st
+[2022-06-25 02:03:13] - File file1.bin already exists!
+[2022-06-25 02:03:13] - File file2Random.bin already exists!
+[2022-06-25 02:03:13] - RESULTS:
+Comparison start: 
+Comparison end:   
+Number of bits: 
+Bit error rate: 
+
+
+[2022-06-25 02:04:12] - test
+[2022-06-25 02:04:12] - st
+[2022-06-25 02:04:12] - File file1.bin already exists!
+[2022-06-25 02:04:12] - File file2Random.bin already exists!
+[2022-06-25 02:04:12] - RESULTS:
+Comparison start: 
+Comparison end:   
+Number of bits: 6
+Bit error rate: 10
+
+
+[2022-06-25 02:33:58] - argc:1
+[2022-06-25 02:34:30] - argc:1
+[2022-06-25 02:44:30] - argc:1
+[2022-06-25 02:45:46] - argc:1
+[2022-06-25 02:49:24] - argc:1
+[2022-06-25 02:54:37] - argc:1

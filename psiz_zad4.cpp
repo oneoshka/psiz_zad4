@@ -5,19 +5,46 @@
 #include <iostream>
 #include "logger.h"
 #include "filegenerator.h"
-int main()
+#include "filecomparator.h"
+void main(int argc, char* argv[])
 {
     
-    auto temp = rand() % 88 + 1;
-    writeLine("test");
-    writeLine(temp + "");
 
-    generateFile("file1.bin", 0x55,100);
-    generateFile("file2Random.bin", 0x55, 100, 10);
-    generateFile("bigFile1.bin", 0x55, 1024 * 1024 * 400);
+    if (argc == 3) {
+        writeLine("RUNNING Comparison for 2 files from commandLine! ...");
+        generateFile(argv[1], 0x55, 100);
+        generateFile(argv[2], 0x55, 100);
+        CompareFiles(argv[1], argv[2]);
+        return;
+    }
 
-    
-    //std::cout << "Hello World!\n";
+    if (argc == 2 && std::string(argv[1]) == "test1") {
+        writeLine("RUNNING TEST 1!! ...");
+        generateFile("Test1File1.bin", 0x55, 100);
+        generateFile("Test1File2.bin", 0x55, 100);
+        CompareFiles("Test1File1.bin", "Test1File2.bin");
+        return;
+    }
+    if (argc == 2 && std::string(argv[1]) == "test2") {
+        writeLine("RUNNING TEST 2!! ...");
+        generateFile("test2File1.bin", 0x55, 100);
+        generateFile("test2File2.bin", 0x55, 100, 10, 0x22);
+        CompareFiles("test2File1.bin","test2File2.bin");
+        return;
+    }
+    if (argc == 2 && std::string(argv[1]) == "test3") {
+        writeLine("RUNNING TEST 3!! It can take about 8 mins...");
+        generateFile("test3_BIG_File1.bin", 0x55, 1024 * 1024 * 400);
+        generateFile("test3_BIG_File2.bin", 0x50, 1024 * 1024 * 400);
+        CompareFiles("test3_BIG_File1.bin", "test3_BIG_File2.bin");
+        return;
+    }
+    writeLine("Unknown arguments or bad ammount of arguments");
+    writeLine("argc:" +std::to_string(argc));
+    for (int i = 0; i < argc; ++i) {
+        std::cout <<"argv:"<<i << ":" << argv[i] << "\n";
+
+    }
 }
 
 //1. Program konsolowy.Jako dwa argumenty przyjmuje œcie¿ki do plików dla których oblicza wartoœæ BER.

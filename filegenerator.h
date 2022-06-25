@@ -36,9 +36,10 @@ void generateFile(std::string fileName, char symbolToSave, int symbolCount, int 
 
 				}
 			}
-
 		}
+		
 		file.close();
+		writeLine(fileName + " generated successfully!" );
 	
 	}
 

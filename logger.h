@@ -6,40 +6,28 @@
 #include <ctime>
 #include <format>
 #include <time.h>
-
-// strftime format
-#define LOGGER_PRETTY_TIME_FORMAT "%Y-%m-%d %H:%M:%S"
-
-// printf format
-//#define LOGGER_PRETTY_MS_FORMAT ".%03d"
-#define LOGGER_PRETTY_MS_FORMAT ""
+#include <fstream>
 
 
-// convert current time to milliseconds since unix epoch
 template <typename T>
 static int to_ms(const std::chrono::time_point<T>& tp)
 {
-    using namespace std::chrono;
-
     auto dur = tp.time_since_epoch();
-    return static_cast<int>(duration_cast<milliseconds>(dur).count());
+    return static_cast<int>(duration_cast<std::chrono::milliseconds>(dur).count());
 }
 
-
-// format it in two parts: main part with date and time and part with milliseconds
-static std::string pretty_time()
+static std::string pretty_time(std::string format="%Y-%m-%d %H:%M:%S")
 {
     auto tp = std::chrono::system_clock::now();
     std::time_t current_time = std::chrono::system_clock::to_time_t(tp);
 
-    // this function use static global pointer. so it is not thread safe solution
     std::tm* time_info = std::localtime(&current_time);
 
     char buffer[128];
 
     int string_size = strftime(
         buffer, sizeof(buffer),
-        LOGGER_PRETTY_TIME_FORMAT,
+        format.data(),
         time_info
     );
 
@@ -53,12 +41,27 @@ static std::string pretty_time()
 }
 
 
-
-void writeLine(std::string msg) {
-	
-	std::cout << "[" + pretty_time() + "] - " << msg << '\n';
+void writeLine(std::string msg, bool toFile=true,std::string fileName="log.txt") {
+    std::string line = "[" + pretty_time() + "] - " + msg;
+    std::cout << line << '\n';
+    if (toFile) {
+        std::ofstream file;
+        file.open(fileName, std::ios_base::app);
+        file << line + "\n";
+        file.close();
+    }
+    
 }
 
+void printResult(std::string dateStart, std::string dateEnd, int bitErrorRate, int numOfBits) {
+   std::string longString = std::format(R""""(RESULTS:
+Comparison start: {2}
+Comparison end:   {3}
+Number of bits: {0}
+Bit error rate: {1}
 
+)"""",numOfBits,bitErrorRate,dateStart,dateEnd);
+   writeLine(longString);
+}
 
 

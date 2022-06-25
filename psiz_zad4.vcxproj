@@ -143,9 +143,17 @@
     <ClCompile Include="psiz_zad4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="filecomparator.h" />
     <ClInclude Include="filegenerator.h" />
     <ClInclude Include="hamming.h" />
     <ClInclude Include="logger.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="test2.bat">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </Media>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -29,5 +29,13 @@
     <ClInclude Include="filegenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="filecomparator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="test2.bat">
+      <Filter>Source Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>
