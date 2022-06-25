@@ -53,7 +53,7 @@ void writeLine(std::string msg, bool toFile=true,std::string fileName="log.txt")
     
 }
 
-void printResult(std::string dateStart, std::string dateEnd, int bitErrorRate, int numOfBits) {
+void printResult(std::string dateStart, std::string dateEnd, unsigned long long int bitErrorRate, unsigned long long int numOfBits) {
    std::string longString = std::format(R""""(RESULTS:
 Comparison start: {2}
 Comparison end:   {3}
